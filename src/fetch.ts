@@ -1,23 +1,11 @@
 import { Block, ethers } from 'ethers';
-import dotenv from 'dotenv';
-import Bottleneck from 'bottleneck';
-
-dotenv.config();
-
-const virtuals = '0x0b3e328455c4059EEb9e3f84b5543F74E24e7E1b';   // ERC-20 token
-const baseRpcUrl = process.env.BASE_RPC_URL || 'https://mainnet.base.org';
-const provider = new ethers.JsonRpcProvider(baseRpcUrl);
-const transferEventSignature = 'Transfer(address,address,uint256)';
-
-const limiter = new Bottleneck({
-    minTime: 1000, // 1 request per second
-    maxConcurrent: 1,
-});
-
-const TIMEFRAMES = {
-    ONE_DAY: 24 * 60 * 60,       // 24 hours
-    ONE_WEEK: 7 * 24 * 60 * 60,  // 1 week
-};
+import {
+    limiter,
+    provider,
+    TIMEFRAMES,
+    transferEventSignature,
+    virtuals
+} from './constants';
 
 async function findBlockByTimestamp(targetTimestamp: number): Promise<number> {
     const latestBlock = await limiter.schedule(() => provider.getBlock('latest')) as Block;
