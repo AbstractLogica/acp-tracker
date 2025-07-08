@@ -34,7 +34,7 @@ export const map = {
         },
         TRUST: {
             contract: "0x9B1c65eE0Fb8dC52ca331faAFb85Ac03332f951E",
-            tokenCa: ""
+            tokenCa: "0xC841b4eaD3F70bE99472FFdB88E5c3C7aF6A481a"
         },
         LOKY: {
             contract: "0xB7e36a77997Ac866A542Bd83cBc390D143897a01",

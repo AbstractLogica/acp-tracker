@@ -177,7 +177,7 @@ async function executeAndSendTransactionSummary(timeframe: '24h' | '1w' | '1m') 
 
 async function main() {
     // Run once immediately on startup
-    await executeAndSendTransactionSummary('24h')
+    // await executeAndSendTransactionSummary('24h')
     // await executeAndSendTransactionSummary('1w')
     // await executeAndSendTransactionSummary('1m')
 
