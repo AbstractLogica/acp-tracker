@@ -181,13 +181,13 @@ async function main() {
     // await executeAndSendTransactionSummary('1w')
     // await executeAndSendTransactionSummary('1m')
 
-    // Schedule monthly run on the 1st of each month at midnight UTC
-    cron.schedule('0 0 1 * *', async () => await executeAndSendTransactionSummary('1m'), {
+    // Schedule monthly run on the 1st of each month at 12:20 AM UTC
+    cron.schedule('20 0 1 * *', async () => await executeAndSendTransactionSummary('1m'), {
         timezone: 'UTC'
     })
 
-    // Schedule weekly run every Monday at midnight UTC
-    cron.schedule('0 0 * * 1', async () => await executeAndSendTransactionSummary('1w'), {
+    // Schedule weekly run every Monday at 12:10 AM UTC
+    cron.schedule('10 0 * * 1', async () => await executeAndSendTransactionSummary('1w'), {
         timezone: 'UTC'
     })
 
